@@ -1,6 +1,6 @@
 # README
 
-* Features
-  Getting started -5
-  Posts pagination -2
+# Features
+* Getting started - 5
+* Posts pagination - 2
  
