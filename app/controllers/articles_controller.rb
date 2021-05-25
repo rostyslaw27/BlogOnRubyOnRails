@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
 
   def index
     @articles = Article.page params[:page]
@@ -43,6 +42,16 @@ class ArticlesController < ApplicationController
 
     redirect_to root_path
   end
+
+  def search
+    if params[:search].blank?
+      redirect_to root_path
+    else
+      @parameter = params[:search].downcase
+      @articles = Article.all.where("lower(body) LIKE :search OR lower(title) LIKE :search", search: "%#{@parameter}%")
+    end
+  end
+
 
   private
     def article_params

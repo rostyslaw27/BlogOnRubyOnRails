@@ -1,0 +1,11 @@
+<h2>Search results for '<%= @parameter %>':</h2>
+<div>
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <%= link_to article.title, article %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "Back", root_path %>
+</div>
